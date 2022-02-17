@@ -28,8 +28,7 @@ class _NewTransactionState extends State<NewTransaction> {
 
     widget.addNewTransaction(enteredTitle, enteredAmount, _selectedDate);
 
-    Navigator.of(context)
-        .pop(); //to close the most top screen (in this case is keyboard)
+    Navigator.of(context).pop(); //pop off keyboard
   }
 
   void _presentDatePicker() {
@@ -67,17 +66,13 @@ class _NewTransactionState extends State<NewTransaction> {
                 TextField(
                   decoration: InputDecoration(labelText: 'Title'),
                   controller: _titleController,
-                  //onChanged: (val) {},
-                  onSubmitted: (_) =>
-                      _submitData, //submit when enter pressed (not working)
+                  onSubmitted: (_) => _submitData(),
                 ),
                 TextField(
                   decoration: InputDecoration(labelText: 'Amount'),
                   keyboardType: TextInputType.number,
                   controller: _amountController,
-                  //onChanged: (val) {},
-                  onSubmitted: (_) =>
-                      _submitData, //submit when enter pressed (not working)
+                  onSubmitted: (_) => _submitData(),
                 ),
                 Padding(
                   padding: EdgeInsets.all(6),
